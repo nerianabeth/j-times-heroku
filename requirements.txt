@@ -8,7 +8,6 @@ idna==3.3
 itsdangerous==2.1.2
 Jinja2==3.1.2
 MarkupSafe==2.1.1
-object-detection==0.1
 pyee==9.0.4
 typing_extensions==4.2.0
 urllib3==1.26.9
