@@ -21,7 +21,8 @@ slack_event_adapter = SlackEventAdapter(os.environ['SIGNING_SECRET'], '/slack/ev
 
 client = slack.WebClient(token=os.environ['SLACK_TOKEN'])
 
-# client.chat_postMessage(channel='#test', text="Hello World!")
+
+client.chat_postMessage(channel='#test', text="Hello World!")
 
 BOT_ID = client.api_call("auth.test")['user_id']
 
