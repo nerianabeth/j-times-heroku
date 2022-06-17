@@ -25,6 +25,8 @@ slack_event_adapter = SlackEventAdapter(os.environ['SIGNING_SECRET'], '/slack/ev
 client = slack.WebClient(token=os.environ['SLACK_TOKEN'])
 
 
+client.chat_postMessage(channel='#test', text="Hello World!")
+
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
@@ -33,7 +35,7 @@ def favicon():
 @app.route('/')
 @app.route('/home')
 def home():
-    return "Hello World0.03"
+    return "Hello World0.04"
 
 if __name__ == "__main__":
     app.secret_key = 'ItIsASecret'
