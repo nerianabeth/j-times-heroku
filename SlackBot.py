@@ -20,6 +20,15 @@ map = f.read().replace("\n",',').split(",")
 
 app = flask.Flask(__name__)
 
+slack_event_adapter = SlackEventAdapter(os.environ['SIGNING_SECRET'], '/slack/events', app)
+
+client = slack.WebClient(token=os.environ['SLACK_TOKEN'])
+
+
+client.chat_postMessage(channel='#test', text="Hello World!")
+
+BOT_ID = client.api_call("auth.test")['user_id']
+
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
@@ -28,7 +37,7 @@ def favicon():
 @app.route('/')
 @app.route('/home')
 def home():
-    return "Hello World0.01"
+    return "Hello World0.02"
 
 if __name__ == "__main__":
     app.secret_key = 'ItIsASecret'
