@@ -33,7 +33,7 @@ def favicon():
 @app.route('/')
 @app.route('/home')
 def home():
-    return "Hello World0.02"
+    return "Hello World0.03"
 
 if __name__ == "__main__":
     app.secret_key = 'ItIsASecret'
