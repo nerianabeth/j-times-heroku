@@ -26,6 +26,12 @@ client.chat_postMessage(channel='#test', text="Hello World!")
 
 BOT_ID = client.api_call("auth.test")['user_id']
 
+
+@app.route('/')
+@app.route('/home')
+def home():
+    return "Hello World"
+
 @slack_event_adapter.on('message')
 def message(payload):
     event = payload.get('event', {})
