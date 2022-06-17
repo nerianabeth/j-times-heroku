@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 from flask import Flask
+from flask import send_from_directory
 from slackeventsapi import SlackEventAdapter
 import urllib.request, json
 
@@ -26,6 +27,11 @@ client.chat_postMessage(channel='#test', text="Hello World!")
 
 BOT_ID = client.api_call("auth.test")['user_id']
 
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/favicon.png')
 
 @app.route('/')
 @app.route('/home')
