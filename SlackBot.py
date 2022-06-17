@@ -22,6 +22,8 @@ app = flask.Flask(__name__)
 
 slack_event_adapter = SlackEventAdapter(os.environ['SIGNING_SECRET'], '/slack/events', app)
 
+client = slack.WebClient(token=os.environ['SLACK_TOKEN'])
+
 
 @app.route('/favicon.ico')
 def favicon():
