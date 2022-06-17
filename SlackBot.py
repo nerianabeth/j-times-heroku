@@ -1,6 +1,8 @@
 import flask
 import os
 import slack
+from pathlib import Path
+from dotenv import load_dotenv
 from flask import send_from_directory
 
 app = flask.Flask(__name__)
@@ -13,7 +15,7 @@ def favicon():
 @app.route('/')
 @app.route('/home')
 def home():
-    return "Hello World"
+    return "Hello World0.0"
 
 if __name__ == "__main__":
     app.secret_key = 'ItIsASecret'
