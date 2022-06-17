@@ -20,6 +20,8 @@ map = f.read().replace("\n",',').split(",")
 
 app = flask.Flask(__name__)
 
+slack_event_adapter = SlackEventAdapter(os.environ['SIGNING_SECRET'], '/slack/events', app)
+
 
 @app.route('/favicon.ico')
 def favicon():
