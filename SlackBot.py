@@ -4,6 +4,7 @@ import slack
 from pathlib import Path
 from dotenv import load_dotenv
 from flask import send_from_directory
+from slackeventsapi import SlackEventAdapter
 import urllib.request, json
 
 app = flask.Flask(__name__)
