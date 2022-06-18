@@ -51,7 +51,7 @@ def message(payload):
 
 @app.route('/shabbat')
 def shabbatZmanim():
-    return  Response(>>>), 200
+    return  Response(), 200
 
 
 @app.route('/favicon.ico')
