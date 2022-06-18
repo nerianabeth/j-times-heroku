@@ -49,7 +49,7 @@ def message(payload):
                     client.chat_postMessage(channel=channel_id,text=data)
 
 
-@app.route('/shabbat')
+@app.route('/shabbat', methods = ['POST'])
 def shabbatZmanim():
     return  Response(), 200
 
