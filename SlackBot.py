@@ -3,7 +3,7 @@ import os
 import slack
 from pathlib import Path
 from dotenv import load_dotenv
-from flask import send_from_directory
+from flask import send_from_directory, Response, request
 from slackeventsapi import SlackEventAdapter
 import urllib.request, json
 
@@ -47,6 +47,12 @@ def message(payload):
                     data = json.loads(url.read().decode())
                     data = "הדלקת נרות, שבת " + data.get("items")[0].get("memo")+" ב- " +data.get("location").get("title")+" תכנס ב- " + data.get("items")[0].get("title").split(": ")[-1]
                     client.chat_postMessage(channel=channel_id,text=data)
+
+
+@app.route('/shabbat')
+def shabbatZmanim():
+    return  Response(>>>), 200
+
 
 @app.route('/favicon.ico')
 def favicon():
